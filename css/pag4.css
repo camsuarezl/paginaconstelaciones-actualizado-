@@ -1,0 +1,200 @@
+:root{
+  --accent: #ffd96a;           
+  --accent-rgb: 255,217,106;
+}
+
+.botonvolver{
+  position: fixed;
+  top: 16px; left: 16px;          
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+
+  padding: .6rem .95rem;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  color: #fff;
+  text-decoration: none;
+  font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(255,255,255,.28);
+  backdrop-filter: blur(8px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 22px rgba(0,0,0,.28);
+
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.botonvolver::before{
+  content: "";
+  width: 18px; height: 18px;
+  display: inline-block;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
+  background: currentColor;
+}
+
+.botonvolver:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.1));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 12px 26px rgba(0,0,0,.35),
+    0 0 0 6px rgba(var(--accent-rgb), .18),
+    0 0 24px rgba(var(--accent-rgb), .28);
+}
+
+.botonvolver:active{
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 18px rgba(0,0,0,.28);
+}
+
+.botonvolver:focus-visible{
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .botonvolver{ transition: none; }
+}
+
+.fondo {
+  position: fixed;
+  inset: 0;              /* ocupa todo el viewport */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* hace que la imagen se estire sin perder proporción */
+  z-index: -1;  
+}
+
+.contenido1 {
+  position: absolute;
+  top: 15%;
+  right: 7%;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  font-size: 36px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.contenido2 {
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  z-index: 2;
+  text-align: left;
+}
+
+.opciones {
+  display: flex;
+  gap: 20px;
+}
+
+.opcion {
+  padding: 20px 40px;
+  border: none;
+  border-radius: 12px;
+  background-color: #d846e2;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+.opcion:hover {
+  background-color: #b936c0;
+}
+
+.mensaje {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+}
+
+.mensaje__box {
+  background: #111;
+  color: #fff;
+  padding: 26px;
+  border-radius: 12px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.mensaje__box p {
+  margin: 0 0 14px 0;
+  font-size: 18px;
+}
+
+.mensaje__botones {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.mensaje button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#btn-intentar { background: #777; color: #fff; }
+#btn-avanzar { background: #28a745; color: #fff; }
+
+#btn-intentar:hover { background: #666; }
+#btn-avanzar:hover { background: #218838; }
+
+@media (max-width: 600px) {
+  .contenido1 { right: 6%; font-size: 28px; }
+  .contenido2 { right: 6%; top: 32%; }
+  .mensaje__box { width: 90%; }
+}
+
+.audio-player {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+}
+
+#btn-play {
+  background: #d846e2;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+#btn-play:hover {
+  background: #b936c0;
+}
+body,html{
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}

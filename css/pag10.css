@@ -1,0 +1,70 @@
+
+:root{
+  --accent: #ffd96a;           
+  --accent-rgb: 255,217,106;
+}
+
+.botonvolver{
+  position: fixed;
+  top: 16px; left: 16px;          
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+
+  padding: .6rem .95rem;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  color: #fff;
+  text-decoration: none;
+  font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(255,255,255,.28);
+  backdrop-filter: blur(8px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 22px rgba(0,0,0,.28);
+
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.botonvolver::before{
+  content: "";
+  width: 18px; height: 18px;
+  display: inline-block;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
+  background: currentColor;
+}
+
+.botonvolver:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.1));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 12px 26px rgba(0,0,0,.35),
+    0 0 0 6px rgba(var(--accent-rgb), .18),
+    0 0 24px rgba(var(--accent-rgb), .28);
+}
+
+.botonvolver:active{
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 18px rgba(0,0,0,.28);
+}
+
+.botonvolver:focus-visible{
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .botonvolver{ transition: none; }
+}
+

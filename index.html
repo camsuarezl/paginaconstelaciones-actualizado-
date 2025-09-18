@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Constelaciones de estrellas</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/scripts.js"></script>
+  <style>
+    .sky{ pointer-events:auto; }       /* permitir interacción */
+    .lineas{ pointer-events:none; }    /* las líneas no capturan clics */
+    .estrella{ pointer-events:auto; cursor:pointer; }
+    a.estrella-link{ position:absolute; display:block; }
+  </style>
+</head>
+<body>
+
+  <!-- === Cielo y estrellas de fondo (no interfieren con tus constelaciones) === -->
+  <div class="bg-sky"></div>        <!-- banda nebulosa -->
+  <div class="stars-md"></div>      <!-- estrellas medianas -->
+  <div class="stars-sm"></div>      <!-- estrellas pequeñas -->
+  <div class="stars-xs"></div>      <!-- estrellas diminutas -->
+  <!-- ======================================================================== -->
+
+  <div class="sky">
+    <!-- Grupo 1 -->
+    <div class="constelacion grupo1">
+      <svg class="lineas" viewBox="0 0 250 250">
+        <line x1="50" y1="75" x2="125" y2="100"/>
+        <line x1="125" y1="100" x2="175" y2="50"/>
+        <line x1="175" y1="50" x2="100" y2="175"/>
+      </svg>
+      <a id="estrella1" class="estrella-link" href="pag1.html" aria-label="Ir a página"><svg class="estrella" style="left:50px; top:75px; fill:#fff8dc"><use href="#star-3" /></svg></a>
+      <a id="estrella2" class="estrella-link" href="pag2.html" aria-label="Ir a página"><svg class="estrella" style="left:125px; top:100px; fill:#ffecb3"><use href="#star-4" /></svg></a>
+      <a id="estrella3" class="estrella-link" href="pag3.html" aria-label="Ir a página"><svg class="estrella" style="left:175px; top:50px; fill:#fffacd"><use href="#star-5" /></svg></a>
+      <a id="estrella4" class="estrella-link" href="pag4.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:175px; fill:#fdfd96"><use href="#star-6" /></svg></a>
+    </div>
+
+    <!-- Grupo 2 -->
+    <div class="constelacion grupo2">
+      <svg class="lineas" viewBox="0 0 250 250">
+        <line x1="75" y1="100" x2="150" y2="75"/>
+        <line x1="150" y1="75" x2="200" y2="150"/>
+        <line x1="200" y1="150" x2="125" y2="200"/>
+      </svg>
+      <a class="estrella-link" href="pag5.html" aria-label="Ir a página"><svg class="estrella" style="left:75px; top:100px; fill:#fffdd0"><use href="#star-4" /></svg></a>
+      <a class="estrella-link" href="pag6.html" aria-label="Ir a página"><svg class="estrella" style="left:150px; top:75px; fill:#fff8b0"><use href="#star-6" /></svg></a>
+      <a class="estrella-link" href="pag7.html" aria-label="Ir a página"><svg class="estrella" style="left:200px; top:150px; fill:#fff44f"><use href="#star-5" /></svg></a>
+      <a class="estrella-link" href="pag8.html" aria-label="Ir a página"><svg class="estrella" style="left:125px; top:200px; fill:#ffffe0"><use href="#star-3" /></svg></a>
+    </div>
+
+    <!-- Grupo 3 -->
+    <div class="constelacion grupo3">
+      <svg class="lineas" viewBox="0 0 250 250">
+        <line x1="60" y1="60" x2="150" y2="75"/>
+        <line x1="150" y1="75" x2="175" y2="175"/>
+        <line x1="175" y1="175" x2="100" y2="200"/>
+      </svg>
+      <a class="estrella-link" href="pag10.html" aria-label="Ir a página"><svg class="estrella" style="left:60px; top:60px; fill:#fefcbf"><use href="#star-6" /></svg></a>
+      <a class="estrella-link" href="pag11.html" aria-label="Ir a página"><svg class="estrella" style="left:150px; top:75px; fill:#fffacd"><use href="#star-5" /></svg></a>
+      <a class="estrella-link" href="pag12.html" aria-label="Ir a página"><svg class="estrella" style="left:175px; top:175px; fill:#fef9a7"><use href="#star-4" /></svg></a>
+      <a class="estrella-link" href="pag13.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:200px; fill:#ffeb99"><use href="#star-3" /></svg></a>
+    </div>
+
+    <!-- Grupo 4 -->
+    <div class="constelacion grupo4">
+      <svg class="lineas" viewBox="0 0 250 250">
+        <line x1="50" y1="75" x2="125" y2="150"/>
+        <line x1="125" y1="150" x2="175" y2="100"/>
+        <line x1="175" y1="100" x2="100" y2="50"/>
+      </svg>
+      <a class="estrella-link" href="pag14.html" aria-label="Ir a página"><svg class="estrella" style="left:50px; top:75px; fill:#fff9c4"><use href="#star-5" /></svg></a>
+      <a class="estrella-link" href="pag15.html" aria-label="Ir a página"><svg class="estrella" style="left:125px; top:150px; fill:#ffff99"><use href="#star-6" /></svg></a>
+      <a class="estrella-link" href="pag16.html" aria-label="Ir a página"><svg class="estrella" style="left:175px; top:100px; fill:#fff59d"><use href="#star-3" /></svg></a>
+      <a class="estrella-link" href="pag17.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:50px; fill:#fff176"><use href="#star-4" /></svg></a>
+    </div>
+
+    <!-- Grupo 5 (centrado) -->
+    <div class="constelacion grupo5">
+      <svg class="lineas" viewBox="0 0 250 250">
+        <line x1="75" y1="75" x2="150" y2="125"/>
+        <line x1="150" y1="125" x2="200" y2="175"/>
+        <line x1="200" y1="175" x2="100" y2="200"/>
+      </svg>
+      <a class="estrella-link" href="pag18.html" aria-label="Ir a página"><svg class="estrella" style="left:75px; top:75px; fill:#fffde7"><use href="#star-4" /></svg></a>
+      <a class="estrella-link" href="pag19.html" aria-label="Ir a página"><svg class="estrella" style="left:150px; top:125px; fill:#fff9b0"><use href="#star-3" /></svg></a>
+      <a class="estrella-link" href="pag20.html" aria-label="Ir a página"><svg class="estrella" style="left:200px; top:175px; fill:#ffef96"><use href="#star-6" /></svg></a>
+      <a class="estrella-link" href="pag21.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:200px; fill:#ffffcc"><use href="#star-5" /></svg></a>
+    </div>
+  </div>
+
+  <svg aria-hidden="true" style="position:absolute; width:0; height:0; overflow:hidden">
+    <defs>
+      <symbol id="star-3" viewBox="-50 -50 100 100">
+        <polygon points="0,-50  10,-10  47,-15  20,8  29,45  0,25  -29,45  -20,8  -47,-15  -10,-10" />
+      </symbol>
+      <symbol id="star-4" viewBox="-50 -50 100 100">
+        <polygon points="0,-50  10,-10  50,0  10,10  0,50  -10,10  -50,0  -10,-10" />
+      </symbol>
+      <symbol id="star-5" viewBox="-50 -50 100 100">
+        <polygon points="0,-50  14,-16  47,-15  23,7  29,40  0,24  -29,40  -23,7  -47,-15  -14,-16" />
+      </symbol>
+      <symbol id="star-6" viewBox="-50 -50 100 100">
+        <polygon points="0,-50  9,-18  43,-25  18,-6  35,35  7,12  0,50  -7,12  -35,35  -18,-6  -43,-25  -9,-18" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <main style="position:relative; z-index:2; padding:20px;">
+    <h1>Memoria de constelaciones</h1>
+  </main>
+</body>
+</html>

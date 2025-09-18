@@ -1,0 +1,221 @@
+/* ====== PALETA CONSTELACIONES ====== */
+:root{
+  /* Cielo */
+  --cielo1:#0B122B;  /* más oscuro */
+  --cielo2:#12224D;  /* medio */
+  --cielo3:#1B3B7A;  /* leve azulado */
+
+  /* Estrella/acento */
+  --accent:#FFD96A;
+  --accent-rgb:255,217,106;
+
+  /* Vidrio y líneas */
+  --glass-bg: rgba(255,255,255,.10);
+  --glass-bg-strong: rgba(255,255,255,.14);
+  --glass-border: rgba(255,255,255,.22);
+  --grid-line: rgba(255,255,255,.10);
+  --ink: #EAF2FF;
+}
+
+/* ====== FONDO CIELO CON BRILLITOS ====== */
+html,body{height:100%; margin:0;}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  text-align: center;
+  background:
+    radial-gradient(1200px 800px at 65% 20%, var(--cielo3) 0%, var(--cielo2) 45%, var(--cielo1) 100%),
+    linear-gradient(180deg, var(--cielo2), var(--cielo1));
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* estrellitas sutiles */
+body::before{
+  content:"";
+  position: fixed; inset:0;
+  background:
+    radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.65) 0, transparent 60%),
+    radial-gradient(1.6px 1.6px at 70% 15%, rgba(255,255,255,.45) 0, transparent 60%),
+    radial-gradient(1.8px 1.8px at 80% 70%, rgba(255,255,255,.5) 0, transparent 60%),
+    radial-gradient(1.4px 1.4px at 30% 75%, rgba(255,255,255,.35) 0, transparent 60%),
+    radial-gradient(1.2px 1.2px at 50% 55%, rgba(255,255,255,.35) 0, transparent 60%);
+  pointer-events:none;
+  opacity:.6;
+}
+
+/* ====== TITULAR ====== */
+h1{
+  margin: 24px 0 14px;
+  font-weight: 700;
+  letter-spacing:.3px;
+  text-shadow: 0 0 20px rgba(var(--accent-rgb), .12);
+}
+
+/* ====== BOTÓN VOLVER (mantengo tu base y lo alineo al tema) ====== */
+.botonvolver{
+  position: fixed; top:16px; left:16px; z-index:9999;
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.6rem .95rem; border-radius:999px;
+  background: linear-gradient(180deg, var(--glass-bg-strong), rgba(255,255,255,.06));
+  color:#fff; text-decoration:none;
+  font:600 14px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing:.2px;
+  border:1px solid var(--glass-border);
+  backdrop-filter: blur(10px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 22px rgba(0,0,0,.28);
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+.botonvolver::before{
+  content:"";
+  width:18px; height:18px; display:inline-block;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
+  background: currentColor;
+}
+.botonvolver:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 12px 26px rgba(0,0,0,.35),
+    0 0 0 6px rgba(var(--accent-rgb), .18),
+    0 0 24px rgba(var(--accent-rgb), .28);
+}
+.botonvolver:active{ transform: translateY(0); }
+.botonvolver:focus-visible{
+  outline:3px solid var(--accent); outline-offset:2px; border-color:var(--accent);
+}
+@media (prefers-reduced-motion: reduce){ .botonvolver{ transition:none; } }
+
+/* ====== MARCO DE VIDRIO PARA EL TABLERO ====== */
+/* (envuelve tu .grid en un div.card-cielo si puedes) */
+.card-cielo{
+  width: fit-content;
+  margin: 22px auto 10px;
+  padding: 18px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.20),
+    0 14px 40px rgba(0,0,0,.35),
+    0 0 0 10px rgba(255,255,255,.02);
+  backdrop-filter: blur(12px) saturate(120%);
+  position: relative;
+}
+/* “constelación” alrededor del marco */
+.card-cielo::after{
+  content:"";
+  position:absolute; inset:-2px;
+  border-radius: 30px;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.05), 0 0 40px rgba(var(--accent-rgb), .08);
+}
+
+/* ====== GRID DEL CRUCIGRAMA ====== */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(13, 40px);
+  grid-template-rows: repeat(11, 40px);
+  gap: 6px;                 /* más espacio para el redondeo */
+  justify-content:center;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border: 1px solid var(--grid-line);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 8px 28px rgba(0,0,0,.28);
+}
+
+/* ====== CELDAS REDONDEADAS “NEÓN SUAVE” ====== */
+.cell{
+  width:40px; height:40px;
+  position:relative;
+  border-radius: 12px;               /* ← redondeado */
+  background: radial-gradient(160% 140% at 30% 25%, rgba(255,255,255,.10), rgba(255,255,255,.00) 60%),
+              linear-gradient(180deg, #12305F, #0F2645 60%, #0C1C33);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 2px 10px rgba(0,0,0,.35);
+  overflow: hidden;
+}
+
+/* Celda “blanca” = vidrio lechoso para bloque */
+.cell.white{
+  background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.38));
+  border: 1px solid rgba(255,255,255,.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    0 2px 8px rgba(0,0,0,.25);
+}
+
+/* Numerito de pista */
+.cell .number{
+  position:absolute; top:6px; left:7px;
+  font-size:10px; font-weight:700;
+  color: rgba(255,255,255,.85);
+  text-shadow: 0 0 6px rgba(var(--accent-rgb), .18);
+}
+
+/* Input de letra */
+.cell input{
+  width:100%; height:100%;
+  border:none; background: transparent;
+  color:#F8FBFF;
+  text-align:center;
+  font-size:18px; font-weight:800;
+  text-transform: uppercase;
+  letter-spacing:.5px;
+}
+.cell input::placeholder{ color:rgba(255,255,255,.45); }
+
+.cell input:focus{
+  outline:none;
+  background: radial-gradient(120% 90% at 50% 40%, rgba(var(--accent-rgb), .14), rgba(255,255,255,0) 60%);
+  box-shadow: inset 0 0 0 2px rgba(var(--accent-rgb), .45), 0 0 18px rgba(var(--accent-rgb), .25);
+}
+
+/* ====== BOTÓN REVISAR, EN LÍNEA CON EL TEMA ====== */
+#revisar{
+  margin:20px auto 30px;
+  padding:12px 26px;
+  font-size:16px; font-weight:800; letter-spacing:.3px;
+  color:#1A1500;
+  background: linear-gradient(180deg, #FFE89E, #FFD96A);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 999px;
+  cursor:pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.85),
+    0 12px 24px rgba(0,0,0,.28),
+    0 0 0 10px rgba(255,217,106,.08);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+#revisar:hover{
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 16px 30px rgba(0,0,0,.32),
+    0 0 0 12px rgba(255,217,106,.15);
+  filter: saturate(1.05);
+}
+#revisar:active{ transform: translateY(0); }
+
+/* ====== ACCESIBILIDAD ====== */
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+.botonvolver::before{
+  content: "";
+  width: 18px; height: 18px; display: inline-block;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
+  background: currentColor;
+  }

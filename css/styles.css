@@ -1,0 +1,273 @@
+:root{
+  --ink:#F6F0D9;
+  --c0:#060B16;  /* noche profunda */
+  --c1:#0B1B2C;  /* navy */
+  --c2:#0F2B40;  /* azul noche */
+  --glow:255,239,180;
+}
+
+/* Fondo base + viñeta */
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink);
+  background:
+    linear-gradient(180deg, var(--c2) 0%, var(--c1) 55%, var(--c0) 100%);
+  margin:0; overflow-x:hidden; position:relative;
+}
+body::before{
+  /* viñeta oscura suave */
+  content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(120% 90% at 50% 10%, rgba(0,0,0,0) 0%, rgba(0,0,0,.0) 60%, rgba(0,0,0,.35) 100%),
+    radial-gradient(80% 50% at 50% 60%, rgba(0,0,0,0) 0%, rgba(0,0,0,.20) 90%);
+}
+
+/* Banda nebulosa (leche estelar) */
+.sky{
+  position:fixed; inset:0; z-index:1; pointer-events:none;
+}
+.sky::before{
+  content:""; position:absolute; inset:0;
+  background:
+    radial-gradient(1100px 360px at 50% 56%, rgba(80,130,175,.28), rgba(80,130,175,0) 65%),
+    radial-gradient(900px 280px at 60% 58%, rgba(255,255,255,.09), rgba(255,255,255,0) 60%),
+    radial-gradient(900px 280px at 40% 52%, rgba(255,255,255,.07), rgba(255,255,255,0) 60%);
+  filter: blur(18px) saturate(108%);
+  opacity:.55;
+}
+
+/* --------- Estrellas de fondo (no son tus constelaciones) --------- */
+/* Capa mediana (unas más brillantes) */
+.stars-md,
+.stars-sm,
+.stars-xs{ position:fixed; inset:0; pointer-events:none; z-index:1; background:transparent; }
+
+.stars-md{
+  width:2px; height:2px; border-radius:50%;
+  box-shadow:
+    6vw 12vh #fff, 14vw 28vh #fff, 22vw 64vh #fff, 34vw 18vh #fff,
+    41vw 77vh #fff, 55vw 42vh #fff, 68vw 12vh #fff, 80vw 66vh #fff,
+    90vw 24vh #fff, 12vw 84vh #fff, 25vw 10vh #fff, 72vw 40vh #fff,
+    48vw 70vh #fff, 60vw 18vh #fff, 30vw 55vh #fff, 18vw 38vh #fff;
+  animation: twinkle 6s ease-in-out infinite alternate;
+  opacity:.85; filter: drop-shadow(0 0 2px rgba(255,255,255,.6));
+}
+
+/* Capa pequeña */
+.stars-sm{
+  width:1.6px; height:1.6px; border-radius:50%;
+  box-shadow:
+    8vw 20vh #fff, 16vw 36vh #fff, 28vw 72vh #fff, 38vw 26vh #fff,
+    46vw 82vh #fff, 58vw 48vh #fff, 72vw 18vh #fff, 86vw 70vh #fff,
+    94vw 32vh #fff, 22vw 88vh #fff, 30vw 12vh #fff, 64vw 30vh #fff,
+    11vw 60vh #fff, 52vw 12vh #fff, 76vw 54vh #fff, 43vw 35vh #fff,
+    67vw 83vh #fff, 19vw 74vh #fff, 84vw 46vh #fff, 53vw 90vh #fff;
+  animation: twinkle 7.5s ease-in-out infinite alternate-reverse;
+  opacity:.7; filter: blur(.2px);
+}
+
+/* Capa diminuta (muchas y más suaves) */
+.stars-xs{
+  width:1.2px; height:1.2px; border-radius:50%;
+  box-shadow:
+    5vw 18vh #fff, 12vw 44vh #fff, 21vw 68vh #fff, 27vw 22vh #fff,
+    33vw 56vh #fff, 39vw 82vh #fff, 45vw 14vh #fff, 51vw 38vh #fff,
+    57vw 66vh #fff, 63vw 24vh #fff, 69vw 52vh #fff, 75vw 78vh #fff,
+    81vw 16vh #fff, 87vw 42vh #fff, 93vw 70vh #fff, 9vw 30vh #fff,
+    15vw 58vh #fff, 24vw 86vh #fff, 36vw 48vh #fff, 48vw 60vh #fff,
+    66vw 36vh #fff, 78vw 28vh #fff, 84vw 84vh #fff, 96vw 22vh #fff;
+  animation: twinkle 9s ease-in-out infinite alternate;
+  opacity:.55; filter: blur(.3px);
+}
+
+@keyframes twinkle{ from{opacity:.35; transform:translateZ(0)} to{opacity:.95; transform:translateZ(0)} }
+
+/* --------- Título crema con sombra suave (como la referencia) --------- */
+h1,.titulo{
+  position:relative; z-index:2;
+  margin: 34px 0 8px; text-align:center; color:var(--ink);
+  font-weight:800; font-size: clamp(32px, 5vw, 64px);
+  letter-spacing:.4px;
+  text-transform: lowercase; /* si quieres exacto al mock */
+  text-shadow: 0 2px 12px rgba(255,255,255,.12), 0 0 18px rgba(var(--glow), .16);
+}
+/* Si usas .titulo absoluto, lo coloco arriba centrado */
+.titulo{ position:absolute; top:40px; left:50%; transform:translateX(-50%); }
+/* === RESET DEL FONDO (evita bandas) === */
+html, body { height: 100%; }
+body{
+  background: #0B1B2C !important;   /* base navy sólida */
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === BANDA NEBULOSA + VIÑETA, NO REPITE EN FRANJAS === */
+.bg-sky{
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background: transparent;
+}
+.bg-sky::before,
+.bg-sky::after{
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+}
+.bg-sky::before{
+  /* “vía láctea” centrada, suave */
+  background:
+    radial-gradient(1100px 360px at 50% 56%, rgba(76,127,170,.28), rgba(76,127,170,0) 65%),
+    radial-gradient(900px 260px at 60% 58%, rgba(255,255,255,.09), rgba(255,255,255,0) 60%),
+    radial-gradient(900px 260px at 40% 52%, rgba(255,255,255,.07), rgba(255,255,255,0) 60%);
+  filter: blur(18px) saturate(108%);
+  opacity: .55;
+}
+.bg-sky::after{
+  /* viñeta oscura para profundidad */
+  background:
+    radial-gradient(120% 90% at 50% 8%, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,.34) 100%),
+    radial-gradient(85% 55% at 50% 62%, rgba(0,0,0,0) 0%, rgba(0,0,0,.18) 90%);
+}
+
+/* === ESTRELLAS DE FONDO (3 capas) === */
+.stars-md,.stars-sm,.stars-xs{
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; background: transparent;
+}
+.stars-md, .stars-sm, .stars-xs { width:2px; height:2px; border-radius:50%; }
+
+/* capa mediana – algunas más brillantes */
+.stars-md{
+  box-shadow:
+    6vw 12vh #fff, 14vw 28vh #fff, 22vw 64vh #fff, 34vw 18vh #fff,
+    41vw 77vh #fff, 55vw 42vh #fff, 68vw 12vh #fff, 80vw 66vh #fff,
+    90vw 24vh #fff, 12vw 84vh #fff, 25vw 10vh #fff, 72vw 40vh #fff,
+    48vw 70vh #fff, 60vw 18vh #fff, 30vw 55vh #fff, 18vw 38vh #fff;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,.6));
+  opacity:.85; animation: twinkle 6s ease-in-out infinite alternate;
+}
+
+/* capa pequeña */
+.stars-sm{
+  width:1.6px; height:1.6px;
+  box-shadow:
+    8vw 20vh #fff, 16vw 36vh #fff, 28vw 72vh #fff, 38vw 26vh #fff,
+    46vw 82vh #fff, 58vw 48vh #fff, 72vw 18vh #fff, 86vw 70vh #fff,
+    94vw 32vh #fff, 22vw 88vh #fff, 30vw 12vh #fff, 64vw 30vh #fff,
+    11vw 60vh #fff, 52vw 12vh #fff, 76vw 54vh #fff, 43vw 35vh #fff,
+    67vw 83vh #fff, 19vw 74vh #fff, 84vw 46vh #fff, 53vw 90vh #fff;
+  opacity:.7; filter: blur(.2px);
+  animation: twinkle 7.5s ease-in-out infinite alternate-reverse;
+}
+
+/* capa diminuta (más densa) */
+.stars-xs{
+  width:1.2px; height:1.2px;
+  box-shadow:
+    5vw 18vh #fff, 12vw 44vh #fff, 21vw 68vh #fff, 27vw 22vh #fff,
+    33vw 56vh #fff, 39vw 82vh #fff, 45vw 14vh #fff, 51vw 38vh #fff,
+    57vw 66vh #fff, 63vw 24vh #fff, 69vw 52vh #fff, 75vw 78vh #fff,
+    81vw 16vh #fff, 87vw 42vh #fff, 93vw 70vh #fff, 9vw 30vh #fff,
+    15vw 58vh #fff, 24vw 86vh #fff, 36vw 48vh #fff, 48vw 60vh #fff,
+    66vw 36vh #fff, 78vw 28vh #fff, 84vw 84vh #fff, 96vw 22vh #fff;
+  opacity:.55; filter: blur(.3px);
+  animation: twinkle 9s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle{ from{opacity:.35} to{opacity:.95} }
+
+/* === CAPAS DE TUS CONSTELACIONES ENCIMA DEL CIELO === */
+.sky{ position: relative; z-index: 2; }     /* tus constelaciones */
+.lineas{ z-index: 2; }
+.estrella{ z-index: 3; }
+
+/* título más parecido a la referencia */
+h1{
+  color:#F6F0D9;
+  font-weight:800;
+  font-size: clamp(32px,5vw,64px);
+  text-transform: lowercase;
+  text-shadow: 0 0 18px rgba(255,239,180,.18), 0 2px 12px rgba(0,0,0,.25);
+}
+
+/* === layout de constelaciones (como la referencia) === */
+.sky{ position: relative !important; height: 100vh; }   /* lienzo */
+
+.constelacion{ position:absolute; width:250px; height:250px; }
+
+/* posiciones por grupo */
+.grupo1{ top: 12vh; left: 10vw; }                /* arriba-izquierda */
+.grupo2{ top: 18vh; right: 12vw; left:auto; }    /* arriba-derecha  */
+.grupo3{ bottom: 16vh; left: 12vw; top:auto; }   /* abajo-izquierda */
+.grupo4{ bottom: 12vh; right: 18vw; left:auto; } /* abajo-derecha   */
+.grupo5{ top: 46vh; left: 50vw; transform: translate(-50%,-50%); } /* centro */
+
+/* tamaño de cada estrellita (ajusta si quieres) */
+.estrella{ --size: 50px; }
+
+/* responsive: pantallas pequeñas */
+@media (max-width: 900px){
+  .constelacion{ width:200px; height:200px; }
+  .estrella{ --size: 40px; }
+  .grupo1{ top: 10vh; left: 8vw; }
+  .grupo2{ top: 16vh; right: 8vw; }
+  .grupo3{ bottom: 18vh; left: 8vw; }
+  .grupo4{ bottom: 14vh; right: 10vw; }
+  .grupo5{ top: 50vh; }
+}
+/* ================== SOLO CONSTELACIONES ================== */
+/* contenedor donde van los 5 grupos */
+.sky{
+  position: relative;         /* lienzo para posicionar */
+  z-index: 2;                 /* por encima del fondo */
+  width: 100%;
+  height: 100vh;              /* ocupa la pantalla */
+  pointer-events: auto;
+}
+
+/* cada constelación es un bloque de 250×250 con un SVG de líneas y 4 <svg class="estrella"> */
+.constelacion{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+}
+
+/* posiciones (como la referencia) */
+.grupo1{ top: 12vh; left: 10vw; }                /* arriba-izq */
+.grupo2{ top: 18vh; right: 12vw; left:auto; }    /* arriba-der */
+.grupo3{ bottom: 16vh; left: 12vw; top:auto; }   /* abajo-izq */
+.grupo4{ bottom: 12vh; right: 18vw; left:auto; } /* abajo-der */
+.grupo5{ top: 46vh; left: 50vw; transform: translate(-50%,-50%); } /* centro */
+
+/* líneas que unen las estrellas */
+.lineas{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;       /* no bloquea clics en estrellas */
+  z-index: 2;
+}
+.lineas line{
+  stroke: #FFECA6;            /* dorado suave */
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(255,239,180,.6));
+}
+
+/* estrellas (tus <svg class="estrella"> con <use href="#star-x">) */
+.estrella{
+  --size: 50px;               /* ajusta a 46–52px si quieres más fino */
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  margin-left: calc(var(--size)/-2);
+  margin-top:  calc(var(--size)/-2);
+  z-index: 3;
+  opacity: .95;
+  filter:
+    drop-shadow(0 0 16px rgba(255,241,200,.85))
+    drop-shadow(0 0 28px rgba(255,236,170,.55));
+  animation: titilar 3s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes titilar{
+  0%,100%{ opacity:.9; transform:scale(1) }
+  50%    { opacity:1;  transform:scale(1.10) rotate(.001deg) }
+}
+
