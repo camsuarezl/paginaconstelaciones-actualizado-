@@ -24,7 +24,7 @@ function verificarRespuesta() {
   const btnIntentar = document.getElementById('btn-intentar');
 
   if (respuestaNorm === 'papa') {
-    texto.textContent = '✅ ¡Correcto! Puedes seguir avanzando.';
+    texto.textContent = '✅ ¡Correcto! ';
     btnAvanzar.style.display = 'inline-block';
     btnIntentar.style.display = 'none';
   } else {
@@ -45,7 +45,7 @@ function avanzar() {
   cerrarMensaje();
   // Aquí rediriges a la siguiente página si quieres:
   // location.href = 'siguiente.html';
-  console.log('Avanzando...');
+  console.log('cerrar');
 }
 
 const btnPlay = document.getElementById("btn-play");

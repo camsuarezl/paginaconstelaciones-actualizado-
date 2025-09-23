@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encuentra la Pareja</title>
-  <link rel="stylesheet" href="css/pag9.css">
-   <script src="js/pag8.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <link rel="stylesheet" href="css/pag10.css" />
+  <script src="js/pag8.js" defer></script>
 </head>
 <body>
-  <h1>reescribe el audio</h1>
 
-<div class="fondo"><img src="assets/fondo9.jpg" alt="imagen de fondo"></div>
+  <!-- Fondo a pantalla completa -->
+  <img class="bg-full" src="assets/fondo9.jpg" alt="">
 
+  <!-- Botón volver -->
+  <a class="botonvolver" href="index.html">Volver</a>
 
-  <div class="contenido2">
-    <textarea id="respuesta" placeholder="Escribe tu respuesta aquí..."></textarea>
-    <button id="btn-enviar">Enviar</button>
-  </div>
+  <main>
+    <h1 class="titulo">Reescribe el audio</h1>
 
-  <div class="mensaje" id="mensaje">
+    <!-- Caja de respuesta -->
+    <section class="contenido2" aria-labelledby="label-respuesta">
+      <label id="label-respuesta" class="sr-only" for="respuesta">Tu transcripción</label>
+      <textarea id="respuesta" placeholder="Escribe tu respuesta aquí..." autocomplete="off" spellcheck="false"></textarea>
+      <button id="btn-enviar" type="button">Enviar</button>
+    </section>
+
+    <!-- Reproductor -->
+    <div class="audio-player" role="region" aria-label="Reproductor de audio">
+      <button id="btn-play" type="button" aria-controls="audio" aria-pressed="false">▶️</button>
+    </div>
+    <audio id="audio" preload="auto" src="assets/locuraaaa.mp3"></audio>
+  </main>
+
+  <!-- Modal -->
+  <div class="mensaje" id="mensaje" role="dialog" aria-modal="true" aria-labelledby="texto-mensaje">
     <div class="mensaje__box">
       <p id="texto-mensaje"></p>
       <div class="mensaje__botones">
-        <button id="btn-intentar">Intentar de nuevo</button>
-        <button id="btn-avanzar">Avanzar</button>
+        <button id="btn-intentar" type="button">Intentar de nuevo</button>
+        <button id="btn-avanzar" type="button">Rindete</button>
       </div>
     </div>
   </div>
-
-  <div class="audio-player">
-  <button id="btn-play">▶️</button>
-</div>
-
-<audio id="audio" src="assets/locuraaaa.mp3"></audio>
-
- 
-<a class="botonvolver" href="index.html">Volver</a>
 </body>
 </html>

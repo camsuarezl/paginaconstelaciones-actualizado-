@@ -5,21 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Constelaciones de estrellas</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/scripts.js"></script>
+  <!-- importante: defer para que el JS vea el DOM listo -->
+  <script src="js/script.js" defer></script>
   <style>
     .sky{ pointer-events:auto; }       /* permitir interacción */
     .lineas{ pointer-events:none; }    /* las líneas no capturan clics */
     .estrella{ pointer-events:auto; cursor:pointer; }
     a.estrella-link{ position:absolute; display:block; }
+
+    /* ===== MODAL grande (popup) ===== */
+    #big-modal{
+      position: fixed; inset: 0; display: none;
+      align-items: center; justify-content: center;
+      padding: 24px; background: rgba(8,10,22,.72);
+      z-index: 10000;
+    }
+    #big-modal.open{ display:flex; }
+    #big-modal .bm-card{
+      position: relative;
+      width: min(92vw, 900px);
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 20px;
+      color:#fff; text-align:center;
+      padding: 24px 20px 18px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.45);
+      backdrop-filter: blur(8px) saturate(120%);
+      animation: bm-in .22s ease-out both;
+    }
+    #big-modal .bm-sub{ font-weight:600; opacity:.9; letter-spacing:.2px; text-transform:uppercase; margin-bottom:6px; font-size:12px; }
+    #big-modal .bm-title{ margin:0 0 8px; font-weight:900; letter-spacing:.3px; line-height:1.05; font-size:clamp(28px,6vw,56px); }
+    #big-modal .bm-body{ margin:8px 0 16px; opacity:.96; font-size:clamp(14px,2.4vw,18px); }
+    #big-modal .bm-actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    #big-modal .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.6rem 1rem; border-radius:999px; cursor:pointer;
+      border:1px solid rgba(255,255,255,.24);
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      color:#fff; text-decoration:none; font-weight:700; letter-spacing:.2px;
+    }
+    #big-modal .bm-x{
+      position:absolute; top:10px; right:10px; width:36px; height:36px;
+      border-radius:999px; border:1px solid rgba(255,255,255,.25);
+      display:grid; place-items:center; cursor:pointer;
+      background:rgba(255,255,255,.07); color:#fff; font-size:18px; line-height:1;
+    }
+    @keyframes bm-in{
+      from{ opacity:0; transform: translateY(6px) scale(.98); }
+      to  { opacity:1; transform: translateY(0)   scale(1); }
+    }
   </style>
 </head>
 <body>
 
   <!-- === Cielo y estrellas de fondo (no interfieren con tus constelaciones) === -->
-  <div class="bg-sky"></div>        <!-- banda nebulosa -->
-  <div class="stars-md"></div>      <!-- estrellas medianas -->
-  <div class="stars-sm"></div>      <!-- estrellas pequeñas -->
-  <div class="stars-xs"></div>      <!-- estrellas diminutas -->
+  <div class="bg-sky"></div>
+  <div class="stars-md"></div>
+  <div class="stars-sm"></div>
+  <div class="stars-xs"></div>
   <!-- ======================================================================== -->
 
   <div class="sky">
@@ -30,10 +73,44 @@
         <line x1="125" y1="100" x2="175" y2="50"/>
         <line x1="175" y1="50" x2="100" y2="175"/>
       </svg>
-      <a id="estrella1" class="estrella-link" href="pag1.html" aria-label="Ir a página"><svg class="estrella" style="left:50px; top:75px; fill:#fff8dc"><use href="#star-3" /></svg></a>
-      <a id="estrella2" class="estrella-link" href="pag2.html" aria-label="Ir a página"><svg class="estrella" style="left:125px; top:100px; fill:#ffecb3"><use href="#star-4" /></svg></a>
-      <a id="estrella3" class="estrella-link" href="pag3.html" aria-label="Ir a página"><svg class="estrella" style="left:175px; top:50px; fill:#fffacd"><use href="#star-5" /></svg></a>
-      <a id="estrella4" class="estrella-link" href="pag4.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:175px; fill:#fdfd96"><use href="#star-6" /></svg></a>
+
+      <!-- star-01: 1 -> 2 -->
+      <a id="estrella1" class="estrella-link"
+         data-star-id="star-01"
+         href="pag1.html"
+         data-href-first="pag1.html"
+         data-href-second="pag2.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:50px; top:75px; fill:#fff8dc"><use href="#star-3" /></svg>
+      </a>
+
+      <a id="estrella2" class="estrella-link"
+         data-star-id="star-02"
+         href="estrella2.html"
+         data-href-first="estrella2.html"
+         data-href-second="estrella2.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:125px; top:100px; fill:#ffecb3"><use href="#star-4" /></svg>
+      </a>
+
+      <!-- star-03: 3 -> 4 -->
+      <a id="estrella3" class="estrella-link"
+         data-star-id="star-03"
+         href="pag5.html"
+         data-href-first="pag5.html"
+         data-href-second="pag6.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:175px; top:50px; fill:#fffacd"><use href="#star-5" /></svg>
+      </a>
+
+      <a id="estrella4" class="estrella-link"
+         data-star-id="star-04"
+         href="estrellaparejas.html"
+         data-href-first="estrellaparejas.html"
+         data-href-second="estrellaparejas.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:100px; top:175px; fill:#fdfd96"><use href="#star-6" /></svg>
+      </a>
     </div>
 
     <!-- Grupo 2 -->
@@ -43,10 +120,46 @@
         <line x1="150" y1="75" x2="200" y2="150"/>
         <line x1="200" y1="150" x2="125" y2="200"/>
       </svg>
-      <a class="estrella-link" href="pag5.html" aria-label="Ir a página"><svg class="estrella" style="left:75px; top:100px; fill:#fffdd0"><use href="#star-4" /></svg></a>
-      <a class="estrella-link" href="pag6.html" aria-label="Ir a página"><svg class="estrella" style="left:150px; top:75px; fill:#fff8b0"><use href="#star-6" /></svg></a>
-      <a class="estrella-link" href="pag7.html" aria-label="Ir a página"><svg class="estrella" style="left:200px; top:150px; fill:#fff44f"><use href="#star-5" /></svg></a>
-      <a class="estrella-link" href="pag8.html" aria-label="Ir a página"><svg class="estrella" style="left:125px; top:200px; fill:#ffffe0"><use href="#star-3" /></svg></a>
+
+      <!-- star-05: 5 -> 6 -->
+      <a class="estrella-link"
+         data-star-id="star-05"
+         href="estrella4.html"
+         data-href-first="estrella4.html"
+         data-href-second="estrella4.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:75px; top:100px; fill:#fffdd0"><use href="#star-4" /></svg>
+      </a>
+
+      <!-- star-06 -->
+      <a class="estrella-link"
+         data-star-id="star-06"
+         href="estrella6.html"
+         data-href-first="estrella6.html"
+         data-href-second="estrella6.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:150px; top:75px; fill:#fff8b0"><use href="#star-6" /></svg>
+      </a>
+
+      <!-- star-07: sin contraparte -->
+      <a class="estrella-link"
+         data-star-id="star-07"
+         href="pag7.html"
+         data-href-first="pag7.html"
+         data-href-second="pag7.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:200px; top:150px; fill:#fff44f"><use href="#star-5" /></svg>
+      </a>
+
+      <!-- star-08: 8 -> 10 -->
+      <a class="estrella-link"
+         data-star-id="star-08"
+         href="pag3.html"
+         data-href-first="pag3.html"
+         data-href-second="pag4.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:125px; top:200px; fill:#ffffe0"><use href="#star-3" /></svg>
+      </a>
     </div>
 
     <!-- Grupo 3 -->
@@ -56,10 +169,43 @@
         <line x1="150" y1="75" x2="175" y2="175"/>
         <line x1="175" y1="175" x2="100" y2="200"/>
       </svg>
-      <a class="estrella-link" href="pag10.html" aria-label="Ir a página"><svg class="estrella" style="left:60px; top:60px; fill:#fefcbf"><use href="#star-6" /></svg></a>
-      <a class="estrella-link" href="pag11.html" aria-label="Ir a página"><svg class="estrella" style="left:150px; top:75px; fill:#fffacd"><use href="#star-5" /></svg></a>
-      <a class="estrella-link" href="pag12.html" aria-label="Ir a página"><svg class="estrella" style="left:175px; top:175px; fill:#fef9a7"><use href="#star-4" /></svg></a>
-      <a class="estrella-link" href="pag13.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:200px; fill:#ffeb99"><use href="#star-3" /></svg></a>
+
+      <!-- (respeté tus rutas personalizadas) -->
+      <a class="estrella-link"
+         data-star-id="star-09"
+         href="pag11.html"
+         data-href-first="pag11.html"
+         data-href-second="pag11.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:60px; top:60px; fill:#fefcbf"><use href="#star-6" /></svg>
+      </a>
+
+      <a class="estrella-link"
+         data-star-id="star-10"
+         href="pag8.html"
+         data-href-first="pag8.html"
+         data-href-second="pag10.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:150px; top:75px; fill:#fffacd"><use href="#star-5" /></svg>
+      </a>
+
+      <a class="estrella-link"
+         data-star-id="star-11"
+         href="pag14.html"
+         data-href-first="pag14.html"
+         data-href-second="pag15.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:175px; top:175px; fill:#fef9a7"><use href="#star-4" /></svg>
+      </a>
+
+      <a class="estrella-link"
+         data-star-id="star-12"
+         href="pag16.html"
+         data-href-first="pag16.html"
+         data-href-second="pag17.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:100px; top:200px; fill:#ffeb99"><use href="#star-3" /></svg>
+      </a>
     </div>
 
     <!-- Grupo 4 -->
@@ -69,23 +215,70 @@
         <line x1="125" y1="150" x2="175" y2="100"/>
         <line x1="175" y1="100" x2="100" y2="50"/>
       </svg>
-      <a class="estrella-link" href="pag14.html" aria-label="Ir a página"><svg class="estrella" style="left:50px; top:75px; fill:#fff9c4"><use href="#star-5" /></svg></a>
-      <a class="estrella-link" href="pag15.html" aria-label="Ir a página"><svg class="estrella" style="left:125px; top:150px; fill:#ffff99"><use href="#star-6" /></svg></a>
-      <a class="estrella-link" href="pag16.html" aria-label="Ir a página"><svg class="estrella" style="left:175px; top:100px; fill:#fff59d"><use href="#star-3" /></svg></a>
-      <a class="estrella-link" href="pag17.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:50px; fill:#fff176"><use href="#star-4" /></svg></a>
+
+      <a class="estrella-link"
+         data-star-id="star-13"
+         href="pag18.html"
+         data-href-first="pag18.html"
+         data-href-second="pag19.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:50px; top:75px; fill:#fff9c4"><use href="#star-5" /></svg>
+      </a>
+
+      <a class="estrella-link"
+         data-star-id="star-14"
+         href="pag20.html"
+         data-href-first="pag20.html"
+         data-href-second="pag21.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:125px; top:150px; fill:#ffff99"><use href="#star-6" /></svg>
+      </a>
+
+      <a class="estrella-link"
+         data-star-id="star-15"
+         href="pag22.html"
+         data-href-first="pag22.html"
+         data-href-second="pag23.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:175px; top:100px; fill:#fff59d"><use href="#star-3" /></svg>
+      </a>
+
+      <a class="estrella-link"
+         data-star-id="star-16"
+         href="pag24.html"
+         data-href-first="pag24.html"
+         data-href-second="pag25.html"
+         aria-label="Ir a página">
+        <svg class="estrella" style="left:100px; top:50px; fill:#fff176"><use href="#star-4" /></svg>
+      </a>
     </div>
 
-    <!-- Grupo 5 (centrado) -->
-    <div class="constelacion grupo5">
+    <!-- Grupo 5 (centrado) ——— con textos del modal en data-* -->
+    <div class="constelacion grupo5"
+         data-modal-title="Memoria de constelaciones"
+         data-modal-body="Una experiencia en dos tiempos: lo que ves y lo que recuerdas. Al regresar, la escena cambia. Como la memoria con Alzheimer: aparece, falla, regresa. Entra y mira el otro lado.">
       <svg class="lineas" viewBox="0 0 250 250">
         <line x1="75" y1="75" x2="150" y2="125"/>
         <line x1="150" y1="125" x2="200" y2="175"/>
         <line x1="200" y1="175" x2="100" y2="200"/>
       </svg>
-      <a class="estrella-link" href="pag18.html" aria-label="Ir a página"><svg class="estrella" style="left:75px; top:75px; fill:#fffde7"><use href="#star-4" /></svg></a>
-      <a class="estrella-link" href="pag19.html" aria-label="Ir a página"><svg class="estrella" style="left:150px; top:125px; fill:#fff9b0"><use href="#star-3" /></svg></a>
-      <a class="estrella-link" href="pag20.html" aria-label="Ir a página"><svg class="estrella" style="left:200px; top:175px; fill:#ffef96"><use href="#star-6" /></svg></a>
-      <a class="estrella-link" href="pag21.html" aria-label="Ir a página"><svg class="estrella" style="left:100px; top:200px; fill:#ffffcc"><use href="#star-5" /></svg></a>
+      <!-- NOTA: aquí dejé tus estrellas como <svg> sueltas; el modal se abre al clic en cualquiera -->
+      <svg class="estrella" style="left:75px; top:75px; fill:#fffde7"><use href="#star-4" /></svg>
+      <svg class="estrella" style="left:150px; top:125px; fill:#fff9b0"><use href="#star-3" /></svg>
+      <svg class="estrella" style="left:200px; top:175px; fill:#ffef96"><use href="#star-6" /></svg>
+      <svg class="estrella" style="left:100px; top:200px; fill:#ffffcc"><use href="#star-5" /></svg>
+    </div>
+  </div>
+
+  <!-- ===== Contenedor del modal (una sola vez al final del body) ===== -->
+  <div id="big-modal" aria-hidden="true">
+    <div class="bm-card" role="dialog" aria-modal="true" aria-labelledby="bm-title">
+      <div class="bm-sub"   id="bm-sub"></div>
+      <h2  class="bm-title" id="bm-title"></h2>
+      <div class="bm-body"  id="bm-body"></div>
+      <div class="bm-actions">
+        <button class="btn" id="bm-close" type="button">Cerrar</button>
+      </div>
     </div>
   </div>
 

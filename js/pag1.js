@@ -1,4 +1,3 @@
-/*
 
 document.getElementById ("mascota");
 document.getElementById("historia1");
@@ -50,7 +49,6 @@ lucile.addEventListener("click", () => {
     }
 });
 
-*/
 
 window.onload = (event) => {
   let estadoEstrella1 = localStorage.getItem("estrella1");
