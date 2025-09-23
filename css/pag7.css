@@ -52,6 +52,33 @@ h1{
   text-shadow: 0 0 20px rgba(var(--accent-rgb), .12);
 }
 
+.horizontal {
+position: fixed;
+  top: 48%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 400px;
+    margin: 24px 0 14px;
+  font-weight: 700;
+  letter-spacing:.3px;
+  text-shadow: 0 0 20px rgba(var(--accent-rgb), .12);
+}
+
+.vertical {
+position: fixed;
+  top: 48%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  max-width: 400px;
+    margin: 24px 0 14px;
+  font-weight: 700;
+  letter-spacing:.3px;
+  text-shadow: 0 0 20px rgba(var(--accent-rgb), .12);
+}
+
 /* ====== BOTÓN VOLVER (mantengo tu base y lo alineo al tema) ====== */
 .botonvolver{
   position: fixed; top:16px; left:16px; z-index:9999;

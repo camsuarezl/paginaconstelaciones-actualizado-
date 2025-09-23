@@ -1,0 +1,271 @@
+.background2{
+    position: fixed;
+height: 100vh;
+width:100vw;
+margin: 0%;
+z-index: 0;
+top:0%;
+left: 0%;
+}
+
+#informacion-yo2 {
+  position: absolute;
+  top: 40%;
+  background-color: rgb(152, 193, 244, 0.25);
+  border-style: solid;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  border-radius: 10px;
+  height: 23vh;
+  width: 19vw;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#yoDis{
+text-align: justify;
+font-family: "Space Grotesk", sans-serif;
+  font-size: 17px;
+line-height: 1.6;
+opacity: 1;
+transition: opacity 0.3s ease;
+}
+
+#Sigue{
+    position: absolute;
+    font-size: 20px;
+    height: 6vh;
+    width: 8vw;
+    border-radius: 5px;
+    left: 11vh;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    background-color:rgb(25, 127, 252, 0.85);
+}
+
+#yoDis2{
+  text-align: justify;
+  position: absolute;
+  top: 5vh;
+  left: 1vw;
+  right: 1vw;
+font-family: "Space Grotesk", sans-serif;
+  font-size: 19px;
+line-height: 1.6;
+opacity: 0;
+transition: opacity 0.3s ease; 
+pointer-events: none; 
+}
+
+#Sigues2{
+    position: absolute;
+    font-size: 20px;
+    height: 6vh;
+    width: 8vw;
+    border-radius: 5px;
+    top: 17vh;
+    left: 11vh;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    background-color:rgb(25, 127, 252, 0.85);
+}
+
+.vinilo {
+  position: absolute;
+  width: 27.5vh;
+  height: 8vh;
+  border-radius: 50%;
+  border: 5px solid rgb(25, 127, 252);
+  opacity: 0;
+   transition: opacity 0.3s ease;
+}
+
+#vinilo1 { top: 70%; left: 19.5%; }
+#vinilo2 { top: 77.2%; left: 44.4%; }
+#vinilo3 { top: 78%; left: 66.3%; }
+#vinilo4 { top: 85%; left: 71.5%; }
+
+.viniloss:hover .vinilo {
+  opacity: 1;
+  cursor: pointer;
+}
+
+#informacionDis {
+  position: absolute;
+  top: 28%;
+  background-color: rgb(152, 193, 244, 0.25);
+  border-style: solid;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  border-radius: 10px;
+  height: 80vh;
+  width: 60vw;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#talk{
+    position: absolute;
+    width: 14vw;
+    top: 7vh;
+    opacity: 0;
+    top: 2vh;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#beatles{
+    position: absolute;
+    width: 14vw;
+    opacity: 0;
+    top: 1vh;
+    left: 16vw;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#correcto{
+    position: absolute;
+    width: 14vw;
+    opacity: 0;
+    top: 24vh;
+    left: 16vw;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#ronettes{
+    position: absolute;
+    width: 13vw;
+    opacity: 0;
+    top: 25vh;
+    left: 1.5vw;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#Cual{
+text-align: justify;
+font-family: "Space Grotesk", sans-serif;
+font-size: 30px;
+line-height: 1.6;
+opacity: 1;
+transition: opacity 0.3s ease;
+position: absolute;
+left: 605vh;
+right: 5vh;
+}
+
+#Inst{
+text-align: justify;
+font-family: "Space Grotesk", sans-serif;
+font-size: 20px;
+line-height: 1.6;
+opacity: 1;
+transition: opacity 0.3s ease;
+position: absolute;
+left: 55vh;
+right: 5vh;
+top: 20vh;
+}
+
+.seleccion1{
+    position: absolute;
+    height: 18vh;
+    width: 10.1vw;
+   border: 5px solid rgb(152, 193, 244, 0.25);
+   left: 1.7vw;
+   top: 4vh;
+   opacity: 0;
+}
+ .seleccion1:hover{
+    opacity: 1;
+ }
+
+ .seleccion2{
+    position: absolute;
+    height: 18vh;
+    width: 10.1vw;
+   border: 5px solid rgb(25, 127, 252); 
+   left: 16.5vw;
+   top: 4vh;
+   opacity: 0;
+}
+
+.seleccion2:hover{
+    opacity: 1;
+}
+
+.seleccion3{
+    position: absolute;
+    height: 19.2vh;
+    width: 10.1vw;
+   border: 5px solid rgb(25, 127, 252); 
+   left: 1.7vw;
+   top: 25.3vh;
+   opacity: 0;
+}
+
+.seleccion3:hover{
+    opacity: 1;
+}
+
+.seleccion4{
+    position: absolute;
+    height: 17.9vh;
+    width: 10.2vw;
+   border: 5px solid rgb(152, 193, 244, 0.25);
+   left: 16.5vw;
+   top: 26vh;
+   opacity: 0;
+}
+
+.seleccion4:hover{
+    opacity: 1;
+}
+
+#wrong{
+    position: absolute;
+    width: 22vw;
+    opacity: 0;
+    pointer-events: none;
+    top: -1vh;
+    left: 14vw;
+}
+
+#mal{
+text-align: justify;
+font-family: "Space Grotesk", sans-serif;
+font-size: 40px;
+line-height: 1.6;
+opacity: 0;
+transition: opacity 0.3s ease;
+position: absolute;
+top: -1.3vh;
+left: 4vw;
+}
+
+#bien{
+    position: absolute;
+    width: 22vw;
+    opacity: 0;
+    pointer-events: none;
+    top: -1vh;
+    left: 14vw;
+}
+
+#feliz{
+text-align: justify;
+font-family: "Space Grotesk", sans-serif;
+font-size: 40px;
+line-height: 1.6;
+opacity: 0;
+transition: opacity 0.3s ease;
+position: absolute;
+top: -2vh;
+left: 5.2vw;
+}

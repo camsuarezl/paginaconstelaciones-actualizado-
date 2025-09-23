@@ -653,6 +653,10 @@ position: absolute;
    display: block;
 }
 
+#tres:hover{
+  cursor: pointer;
+}
+
 #cuatro{
 position: absolute;
  left: 65vw;

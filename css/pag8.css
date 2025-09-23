@@ -69,7 +69,7 @@
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif, sans-serif;
+ font-family: system-ui, sans-serif;
   margin: 0;
   padding: 20px;
 }
@@ -79,7 +79,8 @@ h1 {
   color: rgb(0, 0, 0);
   font-size: 50px;
   font-weight: 700;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: system-ui, sans-serif;
+  position: absolute;
 }
 
 .fondo {
@@ -100,6 +101,7 @@ h1 {
   font-size: 36px;
   font-weight: 700;
   text-align: right;
+  font-family: system-ui, sans-serif;
 }
 
 
@@ -118,7 +120,7 @@ textarea#respuesta {
   border-radius: 8px;
   padding: 12px;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
   resize: none;
   display: block;
   margin-bottom: 10px;

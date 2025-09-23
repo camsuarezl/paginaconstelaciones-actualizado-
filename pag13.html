@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juego de Audios</title>
+  <link rel="stylesheet" href="css/pag13.css">
+</head>
+<body>
+  <!-- Fondo -->
+  <div><img class="fondo" src="assets/fondo13.png" alt="imagen de fondo"></div>
+
+  <h1>¿Cuáles fueron las primeras palabras de mi hijo?</h1>
+
+  <div class="opciones">
+    <button id="btn1" src="assets/bebe1.mp3" onclick="seleccionar(0)">opcion 1</button>
+    <button id="btn2" src="assets/bebe2.mp3" onclick="seleccionar(1)">opcion 2</button>
+    <button id="btn3" src="assets/bebe3.mp3" onclick="seleccionar(2)">opcion 3</button>
+  </div>
+
+  <!-- Botón de verificación -->
+  <div class="verificar-container">
+    <button id="btnVerificar" onclick="verificar()">Verificar</button>
+  </div>
+
+  <p id="mensaje"></p>
+
+  <div class="caja-instrucciones">
+    <h2>Instrucciones</h2>
+    <p>Escucha, selecciona un audio y presiona "Verificar" para confirmar tu respuesta.</p>
+  </div>
+
+  <script src="js/pag13.js"></script>
+</body>
+</html>

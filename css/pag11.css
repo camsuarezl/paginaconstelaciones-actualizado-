@@ -11,7 +11,7 @@ left: 0%;
 #informacion-yo {
   position: absolute;
   top: 40%;
-  background-color: rgb(244, 208, 194);
+  background-color: rgb(152, 193, 244, 0.25);
   border-style: solid;
   left: 50%;
   transform: translateX(-50%);
@@ -20,12 +20,17 @@ left: 0%;
   height: 23vh;
   width: 19vw;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;    background-color: rgba(255, 255, 255, 0.25);
+    border: 2px solid #395a80;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 400px;
+    box-shadow: 0px 4px 8px #ffffff1a;
 }
 
 #texto-intro{
 text-align: justify;
-font-family: "Space Grotesk", sans-serif;
+font-family: system-ui, sans-serif;
   font-size: 17px;
 line-height: 1.6;
 opacity: 1;
@@ -35,12 +40,14 @@ transition: opacity 0.3s ease;
 #botonsi1{
     position: absolute;
     font-size: 17px;
-    height: 6vh;
-    width: 8vw;
+    height: 7vh;
+    width: 9vw;
     border-radius: 5px;
     left: 11vh;
     opacity: 1;
     transition: opacity 0.3s ease;
+    background-color:rgb(25, 127, 252, 0.85);
+    font-family: system-ui, sans-serif;
 }
 
 #arrow{
@@ -63,7 +70,7 @@ transition: opacity 0.3s ease;
 }
 
 #vinilo:hover{
-      border-color: rgb(13, 78, 17);
+      border-color: rgb(0, 108, 240);
   border-style: solid;
   border-width: 4px;
   font-size: 30px;
@@ -75,23 +82,24 @@ transition: opacity 0.3s ease;
 #informacion-musica {
   position: absolute;
   top: 32%;
-  background-color: rgb(244, 208, 194);
+  background-color: rgb(152, 193, 244,0.85);
   border-style: solid;
   left: 50%;
   transform: translateX(-50%);
   padding: 20px;
   border-radius: 10px;
-  height: 35vh;
-  width: 30vw;
+  height: 40vh;
+  width: 35vw;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+  font-family: system-ui, sans-serif;
 }
 
 #lesley{
     position: absolute;
     width: 17vw;
-    top: 8.5vh;
+    top: 12vh;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -108,6 +116,7 @@ opacity: 0;
 transition: opacity 0.3s ease;
 pointer-events: none;
 line-height: 1.4;
+font-family: system-ui, sans-serif;
 }
 
 #play{
@@ -118,6 +127,8 @@ line-height: 1.4;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s ease;
+    font-family: system-ui, sans-serif;
+    
 }
 
 #songText2{
@@ -130,6 +141,7 @@ font-size: 21px;
 opacity: 0;
 transition: opacity 0.3s ease;
 pointer-events: none;
+font-family: system-ui, sans-serif;
 line-height: 1.4;
 }
 
@@ -139,11 +151,13 @@ line-height: 1.4;
     height: 8vh;
     width: 10vw;
     border-radius: 5px;
-    left: 34vh;
-    top: 18vh;
+    left: 50vh;
+    top: 20vh;
     opacity: 0;
 transition: opacity 0.3s ease;
 pointer-events: none;
+background-color: rgb(25, 127, 252,0.60);
+font-family: system-ui, sans-serif;
 }
 
 :root{

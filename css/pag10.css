@@ -1,3 +1,11 @@
+h1 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+}
+
 :root{
   --accent: #ffd96a;           
   --accent-rgb: 255,217,106;
@@ -67,26 +75,36 @@
   .botonvolver{ transition: none; }
 }
 
-/* ===== Fondo a pantalla completa (solo esto) ===== */
-html, body{
-  height: 100%;
+body {
+  font-family: system-ui, sans-serif;
   margin: 0;
+  padding: 20px;
 }
-
-/* La imagen de fondo cubre TODO el viewport */
-.fondo{
+.titulo{
   position: fixed;
-  inset: 0;           
-  width: 100vw;
-  height: 100vh;      /* fallback */
-  height: 100dvh;     /* alto real en móviles */
-  object-fit: cover;  /* << llena todo, puede recortar un poco */
-  object-position: center;
-  z-index: -1;
-  pointer-events: none;
+  top: 12px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 56px;              /* deja espacio para el botón de volver */
+  text-align: center;
+  font: 700 50px/1.1 system-ui, sans-serif;
+  color: #000;
+  z-index: 9998;                /* debajo del .botonvolver (9999) */
+  pointer-events: none;         /* no bloquea botones ni inputs */
+}
+@media (max-width:600px){
+  .titulo{ font-size: 28px; }
+}
+.fondo {
+  position: fixed;
+  inset: 0;             
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     
+  z-index: -1;  
 }
 
-/* ===== Tu layout tal cual ===== */
 .contenido1 {
   position: absolute;
   top: 15%;
@@ -97,6 +115,7 @@ html, body{
   font-weight: 700;
   text-align: right;
 }
+
 
 .contenido2 {
   position: absolute;
@@ -123,12 +142,12 @@ button#btn-enviar {
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #d427ff;
+  background-color: #ff9800;
   color: white;
   font-size: 16px;
   cursor: pointer;
 }
-button#btn-enviar:hover { background-color:#d427ff; }
+button#btn-enviar:hover { background-color: #e68900; }
 
 .mensaje {
   display: none;
@@ -169,7 +188,7 @@ button#btn-enviar:hover { background-color:#d427ff; }
   font-size: 14px;
 }
 
-#btn-intentar { background: #ff0000; color: #fff; }
+#btn-intentar { background: #777; color: #fff; }
 #btn-avanzar { background: #28a745; color: #fff; }
 
 #btn-intentar:hover { background: #666; }
@@ -192,7 +211,47 @@ button#btn-enviar:hover { background-color:#d427ff; }
 }
 
 #btn-play {
-  background: #d427ff;
+  background: #ff9800;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+#btn-play:hover {
+  background: #e68900;
+}
+
+
+#btn-intentar { background: #777; color: #fff; }
+#btn-avanzar { background: #28a745; color: #fff; }
+
+#btn-intentar:hover { background: #666; }
+#btn-avanzar:hover { background: #218838; }
+
+@media (max-width: 600px) {
+  .contenido1 { right: 6%; font-size: 28px; }
+  .contenido2 { right: 6%; top: 32%; }
+  textarea#respuesta { width: 220px; height: 100px; }
+  .mensaje__box { width: 90%; }
+}
+
+.audio-player {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+}
+
+#btn-play {
+  background: #ff9800;
   color: white;
   font-size: 22px;
   font-weight: bold;

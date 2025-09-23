@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if(col=='4') correcta='A';
         if(col=='6') correcta='M';
         if(col=='9') correcta='A';
-        if(col=='10') correcta='E';
+        if(col=='10') correcta='R';
+        if(col=='11') correcta='E';
       }
 
       // Comparar la letra ingresada

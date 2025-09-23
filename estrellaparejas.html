@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> Memoria de constelaciones</title>
+
+  <!-- === Estilos embebidos para vista previa === -->
+  <style>
+    :root{
+      --ink:#ffffff;
+      --ink-dim:#d9d9e3;
+      --bg-1:#060713;   /* cielo profundo */
+      --bg-2:#0a0d20;   /* degradado */
+      --glass:rgba(255,255,255,.08);
+      --glass-border:rgba(255,255,255,.22);
+    }
+
+    /* Reset mínimo */
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0; color:var(--ink); font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, #151a3a 0%, transparent 60%),
+        radial-gradient(1000px 600px at 80% 20%, #0f1330 0%, transparent 60%),
+        linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      overflow-x:hidden;
+    }
+
+    /* Capas de estrellas como en tu index */
+    .bg-sky,.stars-md,.stars-sm,.stars-xs{
+      position:fixed; inset:0; pointer-events:none;
+    }
+    .bg-sky{
+      background:
+        radial-gradient(60% 40% at 50% 45%, rgba(120,150,255,.12), transparent 60%),
+        radial-gradient(40% 30% at 60% 30%, rgba(180,200,255,.10), transparent 65%);
+      filter:saturate(120%);
+    }
+    .stars-xs{ background-image: radial-gradient(2px 2px at 20% 30%, #fff 55%, transparent 56%),
+                                      radial-gradient(1.5px 1.5px at 70% 70%, #fff 55%, transparent 56%),
+                                      radial-gradient(1.8px 1.8px at 40% 80%, #fff 55%, transparent 56%),
+                                      radial-gradient(1.2px 1.2px at 85% 20%, #fff 55%, transparent 56%);
+               animation: drift 140s linear infinite; opacity:.75; }
+    .stars-sm{ background-image: radial-gradient(2.5px 2.5px at 30% 60%, #fff 60%, transparent 61%),
+                                      radial-gradient(2px 2px at 80% 35%, #fff 60%, transparent 61%),
+                                      radial-gradient(2.2px 2.2px at 55% 85%, #fff 60%, transparent 61%);
+               animation: drift 180s linear infinite reverse; opacity:.55; }
+    .stars-md{ background-image: radial-gradient(3px 3px at 15% 25%, #fff 65%, transparent 66%),
+                                      radial-gradient(3px 3px at 65% 15%, #fff 65%, transparent 66%),
+                                      radial-gradient(2.8px 2.8px at 75% 75%, #fff 65%, transparent 66%);
+               animation: drift 220s linear infinite; opacity:.45; }
+    @keyframes drift{
+      from{ background-position: 0 0, 0 0, 0 0; }
+      to  { background-position: 10000px 0, -8000px 0, 6000px 0; }
+    }
+
+    /* Contenido */
+    .wrap{
+      position:relative; z-index:2;
+      min-height:100dvh; display:grid; place-items:center; padding:28px 18px;
+    }
+    .card{
+      width:min(92vw, 820px);
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      border-radius:22px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+      backdrop-filter: blur(8px) saturate(120%);
+      padding:24px 22px 18px;
+    }
+    .eyebrow{
+      font-weight:700; font-size:12px; letter-spacing:.28px; text-transform:uppercase;
+      color:var(--ink-dim); margin:0 0 8px;
+    }
+    h1{
+      margin:0 0 10px; font-weight:900; letter-spacing:.2px; line-height:1.04;
+      font-size:clamp(26px, 4.8vw, 44px);
+    }
+    p{ margin:.7em 0; opacity:.96; }
+
+    .actions{ margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.6rem 1rem; border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      color:#fff; text-decoration:none; font-weight:700; letter-spacing:.2px;
+    }
+    .btn.secondary{ background:transparent; opacity:.9; }
+  </style>
+</head>
+
+<body data-star-id="star-02">
+
+  <!-- Capas de cielo/estrellas -->
+  <div class="bg-sky"></div>
+  <div class="stars-md"></div>
+  <div class="stars-sm"></div>
+  <div class="stars-xs"></div>
+
+  <main class="wrap">
+    <article class="card" role="article" aria-labelledby="título">
+      <h1 id="título">...</h1>
+      <p>
+        Está bien, lo intento de nuevo. Soy Betty. Nací en 1953 en La Estrella, Antioquia: casa grande, cuatro hermanos; mamá Ana y papá José Gregorio… ¿o José Antonio? No, José Antonio era mi hermano, el que me llevó a Bogotá cuando tenía 16. Fui vendedora en la tienda. En septiembre conocí a Au— ¿Antonio? No, Augusto. Otro septiembre, con viento, le dije que sí. Tres meses después llegó el primero… y la casa en Los Alcázares —¿Alvares?— luego dos más, sí, sí.
+        Ahora vivo en La Macarena, con Pelusa… ¿o Pelusa vive conmigo en Macarena? Augusto está en la cocina— no, no está… (se me va). Si me preguntas qué desayuné… [ ]. Mi último cumpleaños fue lindo… creo. Nicolás me suena a risa de bebé. Lo seguro es esto: las montañas de La Estrella siempre vuelven.
+
+      <div class="actions">
+        <a class="btn" href="index.html">← Volver</a>
+        <a class="btn" href="pag5.html">← Ir al recuerdo</a>
+        <!-- Si tienes un juego/contraparte, agrega su link aquí -->
+        <!-- <a class="btn secondary" href="pag2.html">Ir al juego de la 2</a> -->
+      </div>
+    </article>
+  </main>
+
+  <!-- (Opcional) Marca esta estrella como “vista” para que el index muestre la contraparte -->
+  <script>
+    try { localStorage.setItem('estrella:state:star-02','1'); } catch(e){}
+  </script>
+</body>
+</html>
