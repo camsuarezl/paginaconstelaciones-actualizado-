@@ -1,0 +1,297 @@
+
+:root{
+  --accent: #ffd96a;           
+  --accent-rgb: 255,217,106;
+}
+
+.botonvolver{
+  position: fixed;
+  top: 16px; left: 16px;          
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+
+  padding: .6rem .95rem;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  color: #fff;
+  text-decoration: none;
+  font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(255,255,255,.28);
+  backdrop-filter: blur(8px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 22px rgba(0,0,0,.28);
+
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.botonvolver::before{
+  content: "";
+  width: 18px; height: 18px;
+  display: inline-block;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
+  background: currentColor;
+}
+
+.botonvolver:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.1));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 12px 26px rgba(0,0,0,.35),
+    0 0 0 6px rgba(var(--accent-rgb), .18),
+    0 0 24px rgba(var(--accent-rgb), .28);
+}
+
+.botonvolver:active{
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 18px rgba(0,0,0,.28);
+}
+
+.botonvolver:focus-visible{
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .botonvolver{ transition: none; }
+}
+.backgroundDIS1{
+    position: fixed;
+height: 110vh;
+width:100vw;
+margin: 0%;
+z-index: 0;
+top:0%;
+left: 0%;
+}
+
+#btnDisG{
+   width:15vh;
+   display: block;
+   position: absolute;
+   top: 28vh; 
+   left: 10vw;
+   cursor: pointer;
+}
+
+.diploma1{
+    position: absolute;
+    height: 30.8vh;
+    width: 29vw;
+   border: 5px solid rgb(152, 193, 244); 
+   left: 42.9vw;
+   top: 62.4vh;
+   transform: rotate(3deg) skewX(-4deg);
+   opacity: 0;
+}
+
+.diploma1:hover{
+opacity: 1;
+}
+
+#diplomaFake1{
+    position: absolute;
+    height: 87vh;
+    top: 10vh;
+    left: 12.5vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    width: 75vw;
+}
+
+#diplomaFake2{
+    position: absolute;
+    height: 87vh;
+    top: 10vh;
+    left: 12.5vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    width: 75vw;
+}
+
+#diplomaReal{
+    position: absolute;
+    height: 87vh;
+    top: 10vh;
+    left: 12.5vw;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    width: 75vw;
+}
+
+#der{
+    position: absolute;
+    height: 36vh;
+    top: 40vh;
+    left: 87vw;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#izq{
+    position: absolute;
+    height: 36vh;
+    top: 40vh;
+    left:-2vw;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#der2{
+    position: absolute;
+    height: 36vh;
+    top: 40vh;
+    left: 87vw;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#izq2{
+    position: absolute;
+    height: 36vh;
+    top: 40vh;
+    left:-2vw;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.decision1{
+    position: absolute;
+    height: 86.5vh;
+    width: 74.3vw;
+   border: 5px solid rgb(152, 193, 244); 
+   left: 12.5vw;
+   top: 10vh;
+   opacity: 0;
+   pointer-events: none;
+   cursor: pointer;
+}
+
+.decision1.active:hover {
+    opacity: 1;
+}
+
+.decision1.active{
+  pointer-events: auto;
+}
+
+.decision2{
+    position: absolute;
+    height: 86.5vh;
+    width: 74.3vw;
+   border: 5px solid rgb(152, 193, 244); 
+   left: 12.5vw;
+   top: 10vh;
+   opacity: 0;
+   pointer-events: none;
+   cursor: pointer;
+}
+
+.decision2.active:hover {
+    opacity: 1;
+}
+
+.decision2.active{
+  pointer-events: auto;
+}
+
+.decision3{
+    position: absolute;
+    height: 86.5vh;
+    width: 74.3vw;
+   border: 5px solid rgb(152, 193, 244); 
+   left: 12.5vw;
+   top: 10vh;
+   opacity: 0;
+   pointer-events: none;
+   cursor: pointer;
+}
+
+.decision3.active:hover {
+    opacity: 1;
+}
+
+.decision3.active{
+  pointer-events: auto;
+}
+
+#respuestaCONF {
+  position: absolute;
+  top: 28%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-style: solid;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  border-radius: 10px;
+  height: 45vh;
+  width: 40vw;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#YESS{
+    position: absolute;
+    top: 18%;
+    left: 32%;
+    height: 45vh;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#NAUR{
+    position: absolute;
+    top: 9%;
+    left: 32%;
+    height: 50vh;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#trabajoCO{
+     position: absolute;
+    text-align: center;
+    top: 0.2vh;
+    left: 1vw;
+    right:1vw;
+font-family: system-ui, sans-serif;
+  font-size: 25px;
+line-height: 1.6;
+opacity: 0;
+pointer-events: none;
+color: black;
+}
+
+#trabajoINC{
+    position: absolute;
+    text-align: center;
+    top: 0.2vh;
+    left: 1vw;
+    right:1vw;
+font-family: system-ui, sans-serif;
+  font-size: 25px;
+line-height: 1.6;
+opacity: 0;
+pointer-events: none;
+color: black;
+}
