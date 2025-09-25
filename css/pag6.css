@@ -117,13 +117,13 @@ h1 {
 }
 
 .frente {
-  background: rgba(255, 255, 255, 0.25); 
+  background: rgb(152, 193, 244,0.85); 
   border: 2px solid #ccc;
 }
 
 .atras {
   transform: rotateY(180deg);
-  background: rgba(255, 255, 255, 0.25); 
+  background: rgb(152, 193, 244,0.35); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,8 +156,8 @@ position: fixed;
   top: 48%;
   left: 19%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.25); 
-  border: 2px solid #395a80;
+  background-color: rgb(152, 193, 244,0.85); 
+  border: 2px solid rgb(25, 127, 252);
   border-radius: 12px;
   padding: 20px;
   max-width: 400px;

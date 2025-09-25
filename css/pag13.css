@@ -11,7 +11,7 @@ body {
   height: 700px;
   object-fit: cover; 
   z-index: -1;
-  background-color: #395a80;
+  background-color: rgb(25, 127, 252);;
 }
 
 h1 {
@@ -85,8 +85,8 @@ h1 {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.25);
-  border: 2px solid #395a80;
+  background-color: rgb(152, 193, 244,0.85);
+  border: 2px solid rgb(25, 127, 252);
   border-radius: 12px;
   padding: 20px;
   max-width: 400px;
