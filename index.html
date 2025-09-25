@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Constelaciones de estrellas</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- importante: defer para que el JS vea el DOM listo -->
+  
   <script src="js/script.js" defer></script>
   <style>
-    .sky{ pointer-events:auto; }       /* permitir interacción */
-    .lineas{ pointer-events:none; }    /* las líneas no capturan clics */
+    .sky{ pointer-events:auto; }       
+    .lineas{ pointer-events:none; }   
     .estrella{ pointer-events:auto; cursor:pointer; }
     a.estrella-link{ position:absolute; display:block; }
 
-    /* ===== MODAL grande (popup) ===== */
+    
     #big-modal{
       position: fixed; inset: 0; display: none;
       align-items: center; justify-content: center;
@@ -63,7 +63,6 @@
   <div class="stars-md"></div>
   <div class="stars-sm"></div>
   <div class="stars-xs"></div>
-  <!-- ======================================================================== -->
 
   <div class="sky">
     <!-- Grupo 1 -->
@@ -170,7 +169,6 @@
         <line x1="175" y1="175" x2="100" y2="200"/>
       </svg>
 
-      <!-- (respeté tus rutas personalizadas) -->
       <a class="estrella-link"
          data-star-id="star-09"
          href="pag11.html"
