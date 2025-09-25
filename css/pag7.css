@@ -246,3 +246,10 @@ position: fixed;
   mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
   background: currentColor;
   }
+
+.alert{border:none;padding:20px;border-radius:14px;background:#201715;color:#f6e3da;
+       box-shadow:0 10px 30px rgba(0,0,0,.5);width:min(420px,90vw)}
+.alert::backdrop{background:rgba(0,0,0,.5)}
+.alert h3{margin:0 0 10px;font-weight:700}
+.alert button{margin-top:12px;border:0;padding:10px 18px;border-radius:12px;
+              background:#ffb7a3;color:#3a1d16;cursor:pointer;font-weight:700}

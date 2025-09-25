@@ -26,6 +26,9 @@ left: 0%;
 #yoDis{
 text-align: justify;
 font-family: "Space Grotesk", sans-serif;
+top: 1vh;
+  left: 1vw;
+  right: 1vw;
   font-size: 17px;
 line-height: 1.6;
 opacity: 1;
@@ -47,7 +50,7 @@ transition: opacity 0.3s ease;
 #yoDis2{
   text-align: justify;
   position: absolute;
-  top: 5vh;
+  top: 2vh;
   left: 1vw;
   right: 1vw;
 font-family: "Space Grotesk", sans-serif;
@@ -61,10 +64,10 @@ pointer-events: none;
 #Sigues2{
     position: absolute;
     font-size: 20px;
-    height: 6vh;
-    width: 8vw;
+    height: 7vh;
+    width: 9vw;
     border-radius: 5px;
-    top: 17vh;
+    top: 20vh;
     left: 11vh;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -82,10 +85,10 @@ pointer-events: none;
    transition: opacity 0.3s ease;
 }
 
-#vinilo1 { top: 70%; left: 19.5%; }
-#vinilo2 { top: 77.2%; left: 44.4%; }
-#vinilo3 { top: 78%; left: 66.3%; }
-#vinilo4 { top: 85%; left: 71.5%; }
+#vinilo1 { top: 71.5%; left: 19.5%; }
+#vinilo2 { top: 79%; left: 44.4%; }
+#vinilo3 { top: 80%; left: 66.3%; }
+#vinilo4 { top: 87%; left: 71.5%; }
 
 .viniloss:hover .vinilo {
   opacity: 1;
@@ -101,8 +104,8 @@ pointer-events: none;
   transform: translateX(-50%);
   padding: 20px;
   border-radius: 10px;
-  height: 80vh;
-  width: 60vw;
+  height: 55vh;
+  width: 50vw;
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -132,7 +135,7 @@ pointer-events: none;
     position: absolute;
     width: 14vw;
     opacity: 0;
-    top: 24vh;
+    top: 30vh;
     left: 16vw;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -142,7 +145,7 @@ pointer-events: none;
     position: absolute;
     width: 13vw;
     opacity: 0;
-    top: 25vh;
+    top: 32vh;
     left: 1.5vw;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -202,11 +205,11 @@ top: 20vh;
 
 .seleccion3{
     position: absolute;
-    height: 19.2vh;
+    height: 20vh;
     width: 10.1vw;
    border: 5px solid rgb(25, 127, 252); 
    left: 1.7vw;
-   top: 25.3vh;
+   top: 32.5vh;
    opacity: 0;
 }
 
@@ -216,11 +219,11 @@ top: 20vh;
 
 .seleccion4{
     position: absolute;
-    height: 17.9vh;
+    height: 20vh;
     width: 10.2vw;
    border: 5px solid rgb(152, 193, 244, 0.25);
    left: 16.5vw;
-   top: 26vh;
+   top: 32.5vh;
    opacity: 0;
 }
 
@@ -268,4 +271,73 @@ transition: opacity 0.3s ease;
 position: absolute;
 top: -2vh;
 left: 5.2vw;
+}
+
+:root{
+  --accent: #ffd96a;           
+  --accent-rgb: 255,217,106;
+}
+
+.botonvolver{
+  position: fixed;
+  top: 16px; left: 16px;          
+  z-index: 9999;
+
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+
+  padding: .6rem .95rem;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  color: #fff;
+  text-decoration: none;
+  font: 600 14px/1 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  letter-spacing: .2px;
+
+  border: 1px solid rgba(255,255,255,.28);
+  backdrop-filter: blur(8px) saturate(120%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 22px rgba(0,0,0,.28);
+
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.botonvolver::before{
+  content: "";
+  width: 18px; height: 18px;
+  display: inline-block;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.91 12l5.29 5.3A1 1 0 0 1 15.5 19z\"/></svg>') center/contain no-repeat;
+  background: currentColor;
+}
+
+.botonvolver:hover{
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.1));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 12px 26px rgba(0,0,0,.35),
+    0 0 0 6px rgba(var(--accent-rgb), .18),
+    0 0 24px rgba(var(--accent-rgb), .28);
+}
+
+.botonvolver:active{
+  transform: translateY(0);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    0 8px 18px rgba(0,0,0,.28);
+}
+
+.botonvolver:focus-visible{
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .botonvolver{ transition: none; }
 }
